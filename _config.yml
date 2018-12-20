@@ -24,7 +24,7 @@ url: "" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: jekyllrb
 github_username:  jekyll
 baseurl: "/jekyll"
-url: "http://macoj.github.io"
+url: "http://marcosoliveira.info"
 # Build settings
 markdown: kramdown
 theme: minima
