@@ -238,6 +238,18 @@
       color: red;
   }
 
+  a.paper_link {
+    list-style: none;
+    margin-left: 0rem;
+    margin-top: 0.3rem;
+    padding-left: 0.0rem;
+    font-family: "NHG","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 0.8rem;
+    line-height: 1.1rem;
+    text-decoration: none;
+    font-weight: bold;
+  }
+
   a.post_title {
     list-style: none;
     margin-left: 0rem;
@@ -302,9 +314,23 @@
 <!-- <link rel="stylesheet" href="{{ site.style | default: "default" | prepend: "/assets/css/" | append: ".css" | relative_url }}"> -->
 {% if site.plugins contains "jekyll-feed" %}<link rel="alternate" type="application/atom+xml" href="{{ "/feed.xml" | relative_url }}" title="{{ site.title }}" />{% endif %}
 {% if page.mathjax or site.mathjax %}
-<link rel="stylesheet" href="{{ "/assets/katex/katex.min.css" | relative_url }}">
-<script defer src="{{ "/assets/katex/katex.min.js" | relative_url }}"></script>
-<script defer src="{{ "/assets/katex/contrib/mathtex-script-type.min.js" | relative_url }}"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    TeX: {
+      equationNumbers: {
+        autoNumber: "AMS"
+      }
+    },
+    tex2jax: {
+      inlineMath: [ ['$','$'], ],
+      displayMath: [ ['$$','$$'] ],
+      processEscapes: true,
+    }
+  });
+</script>
+<script type="text/javascript"
+        src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
 {% endif %}
 {% if site.comments.disqus %}<script src="//{{ site.comments.disqus }}.disqus.com/embed.js" async></script>{% endif %}
 {% if site.comments.isso %}<script data-isso="http://{{ site.comments.isso }}" src="//{{ site.comments.isso }}/js/embed.min.js"></script>{% endif %}

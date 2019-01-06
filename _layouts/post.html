@@ -15,12 +15,14 @@ layout: default
 
     <div class="post">
       {{ page.content }}
-      <br>
 
-      <a href="{{ page.paper_download | relative_url}}" class="post_date">[Download here]</a>
+      {% if page.paper_download != "" %}<br><a href="{{ page.paper_download | relative_url}}" class="post_date">[Download preprint here]</a>{% endif %}
 
-      <br>
-      <a href="{{ page.paper_link }}" class="post_date">[Link to {{ page.link_name }}]</a>
+      {% if page.arxiv_link != "" %}<br><a href="{{ page.arxiv_link }}" class="post_date">[arXiv]</a>{% endif %}
+
+
+      {% if page.doi_link != "" %}<br><a href="{{ page.doi_link }}" class="post_date">[Link to publication]</a>{% endif %}
+
     </div>
     {% if site.comments.isso %}
     <hr><div id="isso-thread"></div>
